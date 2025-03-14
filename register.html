@@ -3,139 +3,69 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Neven - Register</title>
+    <title>Register - Neven</title>
+    <script>
+        // JavaScript to redirect to the corresponding .html file for clean URLs
+        if (window.location.pathname === '/login') {
+            window.location.href = 'login.html';
+        }
+    </script>
     <style>
         body {
-            background-color: #000;
             font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            color: #333;
             margin: 0;
             padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            color: #fff;
         }
         .container {
-            background-color: #222;
-            padding: 30px;
+            width: 100%;
+            max-width: 400px;
+            margin: 100px auto;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             border-radius: 8px;
-            width: 350px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
         }
-        h1 {
+        .container h2 {
             text-align: center;
-            font-size: 28px;
             margin-bottom: 20px;
         }
-        input {
+        .container input {
             width: 100%;
-            padding: 12px;
-            margin: 8px 0;
-            border-radius: 5px;
-            border: 1px solid #444;
-            background-color: #333;
-            color: #fff;
-            font-size: 16px;
-        }
-        input:focus {
-            border: 1px solid #fff;
-            outline: none;
-        }
-        button {
-            width: 100%;
-            padding: 12px;
-            background-color: #fff;
-            color: #000;
-            border: none;
-            border-radius: 5px;
-            font-size: 18px;
-            cursor: pointer;
-            margin-top: 10px;
-        }
-        button:hover {
-            background-color: #ccc;
-        }
-        .link {
-            text-align: center;
-            margin-top: 15px;
-        }
-        .link a {
-            color: #fff;
-            text-decoration: none;
-        }
-        .link a:hover {
-            text-decoration: underline;
-        }
-        /* Popup Style */
-        .popup {
-            background-color: #e74c3c;
-            color: #fff;
             padding: 10px;
-            margin-bottom: 20px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .container button {
+            width: 100%;
+            padding: 10px;
+            background-color: #333;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .container button:hover {
+            background-color: #555;
+        }
+        .container p {
             text-align: center;
-            border-radius: 5px;
-            display: none;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Register</h1>
-        
-        <!-- Popup for Errors -->
-        <div id="popup" class="popup">
-            Please fill out all required fields!
-        </div>
-        <div id="invite-error-popup" class="popup">
-            Invalid Invite Code!
-        </div>
-
-        <form id="register-form" action="login.html" method="post" onsubmit="return validateForm()">
-            <input type="text" name="username" id="username" placeholder="Username" required>
-            <input type="email" name="email" id="email" placeholder="Email" required>
-            <input type="password" name="password" id="password" placeholder="Password" required>
-            <input type="text" name="invite_code" id="invite_code" placeholder="Invite Code (Optional)">
+        <h2>Register</h2>
+        <form action="register.html" method="POST">
+            <input type="text" name="username" placeholder="Username" required>
+            <input type="email" name="email" placeholder="Email" required>
+            <input type="password" name="password" placeholder="Password" required>
+            <input type="text" name="inviteCode" placeholder="Invite Code (optional)">
             <button type="submit">Register</button>
         </form>
-        <div class="link">
-            <a href="index.html">Already have an account? Login</a>
-        </div>
+        <p><a href="/login">Already have an account? Login</a></p>
     </div>
-
-    <script>
-        // Example valid invite code (you can customize this as needed)
-        const validInviteCode = "573298xh";
-
-        // Function to validate the registration form
-        function validateForm() {
-            const username = document.getElementById('username').value;
-            const email = document.getElementById('email').value;
-            const password = document.getElementById('password').value;
-            const inviteCode = document.getElementById('invite_code').value;
-            const popup = document.getElementById('popup');
-            const inviteErrorPopup = document.getElementById('invite-error-popup');
-
-            // Check if the required fields are filled
-            if (!username || !email || !password) {
-                popup.textContent = "Please fill out all required fields!";
-                popup.style.display = 'block';
-                return false; // Prevent form submission
-            } else {
-                popup.style.display = 'none'; // Hide general error popup
-            }
-
-            // If the invite code is provided and is invalid, show the invite error
-            if (inviteCode && inviteCode !== validInviteCode) {
-                inviteErrorPopup.style.display = 'block'; // Show invalid invite error
-                return false; // Prevent form submission
-            } else {
-                inviteErrorPopup.style.display = 'none'; // Hide invite error if valid or empty
-            }
-
-            // If everything is valid, allow form submission
-            return true;
-        }
-    </script>
 </body>
 </html>
