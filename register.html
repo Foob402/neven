@@ -6,7 +6,7 @@
     <title>Neven - Register</title>
     <style>
         body {
-            background-color: #2a2d33;
+            background-color: #000;
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
@@ -14,11 +14,11 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
-            color: #e2e2e2;
+            color: #fff;
         }
         .container {
-            background-color: #1f2228;
-            padding: 20px;
+            background-color: #222;
+            padding: 30px;
             border-radius: 8px;
             width: 350px;
             box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
@@ -26,7 +26,6 @@
         h1 {
             text-align: center;
             font-size: 28px;
-            color: #fff;
             margin-bottom: 20px;
         }
         input {
@@ -36,18 +35,18 @@
             border-radius: 5px;
             border: 1px solid #444;
             background-color: #333;
-            color: #e2e2e2;
+            color: #fff;
             font-size: 16px;
         }
         input:focus {
-            border: 1px solid #00aaff;
+            border: 1px solid #fff;
             outline: none;
         }
         button {
             width: 100%;
             padding: 12px;
-            background-color: #00aaff;
-            color: white;
+            background-color: #fff;
+            color: #000;
             border: none;
             border-radius: 5px;
             font-size: 18px;
@@ -55,14 +54,14 @@
             margin-top: 10px;
         }
         button:hover {
-            background-color: #0088cc;
+            background-color: #ccc;
         }
         .link {
             text-align: center;
             margin-top: 15px;
         }
         .link a {
-            color: #00aaff;
+            color: #fff;
             text-decoration: none;
         }
         .link a:hover {
@@ -77,6 +76,7 @@
             <input type="text" name="username" placeholder="Username" required>
             <input type="email" name="email" placeholder="Email" required>
             <input type="password" name="password" placeholder="Password" required>
+            <input type="text" name="invite_code" placeholder="Invite Code (Optional)">
             <button type="submit">Register</button>
         </form>
         <div class="link">
