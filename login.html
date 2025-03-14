@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Neven</title>
+    <script>
+        // JavaScript to redirect to the corresponding .html file for clean URLs
+        if (window.location.pathname === '/register') {
+            window.location.href = 'register.html';
+        }
+    </script>
+</head>
+<body>
+    <h1>Login to Neven</h1>
+    <form action="login.html" method="POST">
+        <!-- Your login form goes here -->
+        <button type="submit">Login</button>
+    </form>
+    <p><a href="/register">Don't have an account? Register</a></p>
+</body>
+</html>
