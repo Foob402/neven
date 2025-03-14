@@ -67,21 +67,58 @@
         .link a:hover {
             text-decoration: underline;
         }
+        /* Popup Style */
+        .popup {
+            background-color: #e74c3c;
+            color: #fff;
+            padding: 10px;
+            margin-bottom: 20px;
+            text-align: center;
+            border-radius: 5px;
+            display: none;
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>Register</h1>
-        <form action="login.html" method="post">
+        
+        <!-- Popup for Invalid Invite Code -->
+        <div id="invite-popup" class="popup">
+            Invalid Invite Code!
+        </div>
+
+        <form id="register-form" action="login.html" method="post" onsubmit="return validateInviteCode()">
             <input type="text" name="username" placeholder="Username" required>
             <input type="email" name="email" placeholder="Email" required>
             <input type="password" name="password" placeholder="Password" required>
-            <input type="text" name="invite_code" placeholder="Invite Code">
+            <input type="text" name="invite_code" id="invite_code" placeholder="Invite Code (Optional)">
             <button type="submit">Register</button>
         </form>
         <div class="link">
             <a href="index.html">Already have an account? Login</a>
         </div>
     </div>
+
+    <script>
+        // Example valid invite code (you can customize this as needed)
+        const validInviteCode = "VALIDCODE123";
+
+        // Function to validate the invite code
+        function validateInviteCode() {
+            const inviteCode = document.getElementById('invite_code').value;
+            const popup = document.getElementById('invite-popup');
+
+            // If the invite code is invalid, show the popup
+            if (inviteCode && inviteCode !== validInviteCode) {
+                popup.style.display = 'block'; // Show the popup
+                return false; // Prevent form submission
+            }
+            
+            // If everything is valid, return true and allow form submission
+            popup.style.display = 'none'; // Hide the popup
+            return true;
+        }
+    </script>
 </body>
 </html>
