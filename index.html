@@ -3,18 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Neven</title>
+    <title>Neven - Welcome</title>
     <script>
-        // JavaScript to redirect to the corresponding .html file for clean URLs
-        if (window.location.pathname === '/login') {
-            window.location.href = 'login.html';
-        }
-        if (window.location.pathname === '/register') {
-            window.location.href = 'register.html';
-        }
+        // Redirect to register page immediately when visiting the home page
+        window.location.href = 'register.html';
     </script>
 </head>
 <body>
-    <h1>Welcome to Neven</h1>
-    <p><a href="/login">Login</a></p>
-    <p><a href="/register
+    <!-- You can add a loading message or fallback content for users with JS disabled -->
+    <h1>Redirecting you to the registration page...</h1>
+</body>
+</html>
