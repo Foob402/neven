@@ -83,15 +83,15 @@
     <div class="container">
         <h1>Register</h1>
         
-        <!-- Popup for Invalid Invite Code -->
-        <div id="invite-popup" class="popup">
-            Invalid Invite Code!
+        <!-- Popup for Errors -->
+        <div id="popup" class="popup">
+            Please fill out all required fields!
         </div>
 
-        <form id="register-form" action="login.html" method="post" onsubmit="return validateInviteCode()">
-            <input type="text" name="username" placeholder="Username" required>
-            <input type="email" name="email" placeholder="Email" required>
-            <input type="password" name="password" placeholder="Password" required>
+        <form id="register-form" action="login.html" method="post" onsubmit="return validateForm()">
+            <input type="text" name="username" id="username" placeholder="Username" required>
+            <input type="email" name="email" id="email" placeholder="Email" required>
+            <input type="password" name="password" id="password" placeholder="Password" required>
             <input type="text" name="invite_code" id="invite_code" placeholder="Invite Code (Optional)">
             <button type="submit">Register</button>
         </form>
@@ -101,22 +101,24 @@
     </div>
 
     <script>
-        // Example valid invite code (you can customize this as needed)
-        const validInviteCode = "VALIDCODE123";
-
-        // Function to validate the invite code
-        function validateInviteCode() {
+        // Function to validate the registration form
+        function validateForm() {
+            const username = document.getElementById('username').value;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
             const inviteCode = document.getElementById('invite_code').value;
-            const popup = document.getElementById('invite-popup');
+            const popup = document.getElementById('popup');
 
-            // If the invite code is invalid, show the popup
-            if (inviteCode && inviteCode !== validInviteCode) {
-                popup.style.display = 'block'; // Show the popup
+            // Check if the required fields are filled
+            if (!username || !email || !password) {
+                // Display the error popup
+                popup.textContent = "Please fill out all required fields!";
+                popup.style.display = 'block';
                 return false; // Prevent form submission
             }
-            
-            // If everything is valid, return true and allow form submission
-            popup.style.display = 'none'; // Hide the popup
+
+            // If everything is filled out, hide the popup and submit the form
+            popup.style.display = 'none';
             return true;
         }
     </script>
